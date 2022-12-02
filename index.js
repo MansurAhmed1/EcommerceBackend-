@@ -96,6 +96,21 @@ async function run() {
     
     });
 
+
+//get cat by email
+
+
+app.get("/cart",  async (req, res) => {
+  const email = req.query.email;
+  console.log(email)
+  const query = { email: email };
+  const cursor = cartCollection.find(query);
+  const cart = await cursor.toArray();
+  res.send(cart);
+
+})
+
+
     // delete cart
     app.delete("/deletecart/:id", async (req, res) => {
       const id = req.params.id;
@@ -105,6 +120,7 @@ async function run() {
     
     });
     ////////
+   
 
     ///////////////////single data with id///////////////
 
@@ -132,6 +148,9 @@ async function run() {
       res.send(result);
     });
     ////////delete all carts////////
+
+ 
+
 
     //////////////////review post ////////////////////
 
