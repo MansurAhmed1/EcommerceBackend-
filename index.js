@@ -100,7 +100,7 @@ async function run() {
 //get cat by email
 
 
-app.get("/cart",  async (req, res) => {
+app.get("/carts",  async (req, res) => {
   const email = req.query.email;
   console.log(email)
   const query = { email: email };
