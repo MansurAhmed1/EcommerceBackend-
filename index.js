@@ -142,14 +142,11 @@ app.get("/carts",  async (req, res) => {
     // post order//
 
     ////////delete all carts////////
-    app.delete("/deleteallcarts", async (req, res) => {
+    app.delete("/deleteallcarts/:email", async (req, res) => {
       // const email = req.params.email;
-      // // const query = { _id: ObjectId(id) };
-      // // const query = {};
-
-      // // const email = req.query.email;
-      // console.log("kk",email)
-      const query = { email:"mansurahed75236@gmail.com" };
+    
+      const query = { email:email };
+      
       // const cursor = orderCollection.find(query);
       const result = await cartCollection.deleteMany(query);
       res.send(result);
