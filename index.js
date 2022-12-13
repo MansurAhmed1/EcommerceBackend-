@@ -143,7 +143,7 @@ app.get("/carts",  async (req, res) => {
 
     ////////delete all carts////////
     app.delete("/deleteallcarts/:email", async (req, res) => {
-      // const email = req.params.email;
+      const email = req.params.email;
     
       const query = { email:email };
       
