@@ -143,7 +143,11 @@ app.get("/carts",  async (req, res) => {
 
     ////////delete all carts////////
     app.delete("/deleteallcarts", async (req, res) => {
-      const query = {};
+     
+
+      const email = req.query.email;
+      console.log(email)
+      const query = { email: email };
       const result = await cartCollection.deleteMany(query);
       res.send(result);
     });
@@ -171,7 +175,6 @@ app.get("/carts",  async (req, res) => {
 
     app.get("/profile", async (req, res) => {
       const email = req.query.email;
-
       const query = { email: email };
       const cursor = profileColllection.find(query);
       const profileData = await cursor.toArray();
